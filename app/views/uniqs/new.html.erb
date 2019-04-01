@@ -1,0 +1,23 @@
+<h1>New request</h1>
+
+<%= render 'form', uniq: @uniq %>
+
+<% if @how_old < 1000 %>
+  <br><br>
+  <hr>
+  <h2>Last result:</h2>
+    <% if @how_old < 5 %>
+      <h5><%= '(few seconds ago)' %></h5>
+    <% else %>
+      <h5>(<%= @how_old %> seconds ago)</h5>
+    <% end %>
+  <hr>
+  <div class="alert alert-success text-left" role="alert">
+    <%= @last_uniq.result %>
+  </div>
+  <hr>
+  <%= "Recived: #{@before_count}; Deleted: #{@before_count - @after_count}; Result: #{@after_count} uniq elements" %>
+
+<% end %>
+
+<%#= link_to 'Back', uniqs_path %>

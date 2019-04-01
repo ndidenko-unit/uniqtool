@@ -1,0 +1,23 @@
+<div class="login-form">
+<%= form_with(model: uniq, local: true) do |form| %>
+  <% if uniq.errors.any? %>
+    <div id="error_explanation" class="container" role="alert">
+      <h2><%= pluralize(uniq.errors.count, "error") %> prohibited this uniq from being saved:</h2>
+
+      <ul>
+      <% uniq.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :request, class: 'form-control', rows: "10" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Send request", class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Uniqs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>Result</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uniqs.each do |uniq| %>
+      <tr>
+        <td><%= uniq.request %></td>
+        <td><%= uniq.result %></td>
+        <td><%= link_to 'Show', uniq %></td>
+        <td><%= link_to 'Edit', edit_uniq_path(uniq) %></td>
+        <td><%= link_to 'Destroy', uniq, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Uniq', new_uniq_path %>
